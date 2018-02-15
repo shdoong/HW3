@@ -194,7 +194,7 @@ def index():
 @app.route('/all_tweets')
 def see_all_tweets():
     all_tweets = Tweet.query.all()
-    tweets_a = [(tweet.text, User.query.filter_by(id = tweet.user_id).first().display_name) for tweet in all_tweets]
+    tweets_a = [(tweet.text, User.query.filter_by(id = tweet.user_id).first().username) for tweet in all_tweets]
     return render_template('all_tweets.html', all_tweets = tweets_a)
 
     # TODO 364: Fill in this view function so that it can successfully render the template all_tweets.html, which is provided.
