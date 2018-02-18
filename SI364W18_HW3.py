@@ -1,5 +1,6 @@
 ## SI 364 - Winter 2018
 ## HW 3
+## Worked mainly alone but did go to group office hours and discussed
 
 ####################
 ## Import statements
@@ -20,7 +21,7 @@ app.config['SECRET_KEY'] = 'hard to guess string from si364'
 # ## TODO 364: Create a database in postgresql in the code line below, and fill in your app's database URI. It should be of the format: postgresql://localhost/YOUR_DATABASE_NAME
 
 ## Your final Postgres database should be your uniqname, plus HW3, e.g. "jczettaHW3" or "maupandeHW3"
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:Peijia.14@localhost:5432/shdoongHW3" #####HOW TO CONNECT W/O PW
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:Peijia.14@localhost:5432/shdoongHW3" 
 
 ## Provided:
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
@@ -77,7 +78,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(64), unique = True)
     display_name = db.Column(db.String(124))
-    tweets = db.relationship('Tweet', backref = 'Tweet')
+    tweets = db.relationship('Tweet', backref = 'User')
 
     def __repr__(self):
         return "{} | ID: {}".format(self.username, self.id)
